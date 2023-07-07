@@ -1,8 +1,10 @@
-import { View, Text, SafeAreaView, Image, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, Image, ScrollView, Touchable, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import MenuContainer from "../components/MenuContainer";
+import { FontAwesome } from '@expo/vector-icons';
+import ItemCarContainer from "../components/ItemCarContainer";
 
 const Discover = () => {
     const navigation = useNavigation();
@@ -42,11 +44,11 @@ const Discover = () => {
 
             {/* Menu container */}
             <ScrollView>
-                <View className="flex-row items-center justify-center px-8 mt-8">
+                <View>
                     <MenuContainer
                         key={"Restaurants"}
                         title="Restaurants"
-                        imageSrc={require("../assets/restaurant.png")}
+                        imageSrc={require("../assets/restaurants.png")}
                         type={type}
                         setType={setType}
                     />
@@ -64,6 +66,37 @@ const Discover = () => {
                         type={type}
                         setType={setType}
                     />
+                </View>
+
+                <View className="flex-row items-center justify-between px-4 mt-8">
+                    <View>
+                        <Text className="text-[#2C7379] text-[28px] font-bold">
+                            Top Tips
+                        </Text>
+                        <TouchableOpacity className="flex-row items-center justify-center space-x-2">
+                            <Text className="text-[#A0C4C7] text-[20px] font-bold">
+                                Explore
+                            </Text>
+                            <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
+                        </TouchableOpacity>
+                    </View>
+
+                 <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+                        <ItemCarContainer 
+                        key={"101"} 
+                        imageSrc={
+                            "https://cdn.pixabay.com/photo/2023/05/15/09/18/iceberg-7994536_1280.jpg"
+                        } 
+                        title="Something" 
+                        location="da" />
+                        <ItemCarContainer 
+                        key={"102"} 
+                        imageSrc={
+                            "https://media.istockphoto.com/id/693474546/vi/anh/t%E1%BA%A3ng-b%C4%83ng-tr%C3%B4i-%E1%BB%9F-bi%E1%BB%83n-b%E1%BA%AFc-c%E1%BB%B1c.jpg?s=612x612&w=is&k=20&c=6feUOhKHZQH1fa6FwmPJB5ySyKQ0_97c3cYWTWmenKM="
+                        } 
+                        title="ea" 
+                        location="fe" />           
+                 </View>   
                 </View>
             </ScrollView>
         </SafeAreaView>
