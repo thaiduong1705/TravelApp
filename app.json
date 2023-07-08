@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/restaurants.png",
+      "image": "./assets/restaurant.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

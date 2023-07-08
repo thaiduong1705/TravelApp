@@ -8,8 +8,6 @@ import Discover from "./screens/Discover";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-    const unsafeAreaHeight = StatusBar.currentHeight || 0;
-    console.log(unsafeAreaHeight);
     return (
         <TailwindProvider>
             <NavigationContainer>
@@ -21,4 +19,3 @@ export default function App() {
         </TailwindProvider>
     );
 }
-
