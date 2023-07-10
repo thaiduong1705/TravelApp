@@ -63,7 +63,7 @@ const Discover = () => {
                         console.log(data, detail);
                         console.log(detail?.geometry?.viewport);
                     }}
-                    query={{}}
+                    query={{key: "AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc", language:"vi"}}
                     className="w-full h-full"
                 />
             </View>
