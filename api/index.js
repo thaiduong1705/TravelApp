@@ -11,9 +11,8 @@ export const getPlacesData = async () => {
                 bl_longitude: "109.095887",
                 tr_longitude: "109.149359",
                 limit: "30",
-                currency: "USD",
                 lunit: "km",
-                lang: "en_US",
+                lang: "vi_VN",
             },
             headers: {
                 "X-RapidAPI-Key":

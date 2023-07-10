@@ -140,6 +140,7 @@ const Discover = () => {
                                                 }
                                                 title={data?.name}
                                                 location={data?.location_string}
+                                                data={data}
                                             />
                                         );
                                     })}

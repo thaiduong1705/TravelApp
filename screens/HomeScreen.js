@@ -60,7 +60,7 @@ const HomeScreen = () => {
 
                 {/* Circle GO */}
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("Discover")}
+                    onPress={() => navigation.navigate("Tab")}
                     className="absolute bottom-20 w-24 h-24 border-l-2 border-r-2 border-t-4 border-[#00bcc9] rounded-full items-center justify-center"
                 >
                     <Animatable.View
