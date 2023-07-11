@@ -7,6 +7,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import HomeScreen from "./screens/HomeScreen";
 import Discover from "./screens/Discover";
 import ItemScreen from "./screens/ItemScreen";
+import Map from "./screens/Map";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -47,6 +48,7 @@ export default function App() {
                     />
                     <Stack.Screen name="Tab" component={TabNavigation} />
                     <Stack.Screen name="ItemScreen" component={ItemScreen} />
+                    <Stack.Screen name="Map" component={Map} />
                 </Stack.Navigator>
             </NavigationContainer>
         </TailwindProvider>

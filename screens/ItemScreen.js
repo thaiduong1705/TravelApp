@@ -44,13 +44,24 @@ const ItemScreen = ({ route }) => {
                             />
                         </TouchableOpacity>
 
-                        <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE]">
-                            <FontAwesome5
-                                name="heartbeat"
-                                size={24}
-                                color="#fff"
-                            />
-                        </TouchableOpacity>
+                        <View className="flex-row justify-between items-center">
+                            <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE] mr-2">
+                                <FontAwesome5
+                                    name="map-pin"
+                                    size={24}
+                                    color="#fff"
+                                    onPress={() => navigation.navigate("Map")}
+                                />
+                            </TouchableOpacity>
+                            <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE]">
+                                <FontAwesome5
+                                    name="heartbeat"
+                                    size={24}
+                                    color="#fff"
+                                />
+                            </TouchableOpacity>
+                        </View>
+                        
                     </View>
                     <View className="absolute flex-row inset-x-0 bottom-5 justify-between px-6">
                         <View className="flex-row space-x-2 items-center">
@@ -152,39 +163,42 @@ const ItemScreen = ({ route }) => {
                         ))}
                     </View>
                 )}
-                <View className=" space-y-2 mt-4 bg-gray-100 rounded-2xl px-4 py-2">
+                <View className=" space-y-2 mt-6 bg-gray-100 rounded-2xl px-4 pt-4 pb-2">
                     {data?.phone && (
                         <View className="items-center flex-row space-x-6">
-                            <FontAwesome
+                            <View className="flex items-center justify-center w-[24px]">
+                                <FontAwesome
                                 name="phone"
                                 size={24}
                                 color="#428288"
-                            />
+                            /></View>
                             <Text className="text-lg">{data?.phone}</Text>
                         </View>
                     )}
                     {data?.email && (
                         <View className="items-center flex-row space-x-6">
-                            <FontAwesome
+                            <View className="flex items-center justify-center w-[24px]">
+                                <FontAwesome
                                 name="envelope"
                                 size={24}
                                 color="#428288"
-                            />
+                            /></View>
                             <Text className="text-lg">{data?.email}</Text>
                         </View>
                     )}
                     {data?.address && (
                         <View className="items-center flex-row space-x-6">
-                            <FontAwesome
+                            <View className="flex items-center justify-center w-[24px]">
+                                <FontAwesome
                                 name="map-pin"
                                 size={24}
                                 color="#428288"
-                            />
+                            /></View>
                             <Text className="text-lg">{data?.address}</Text>
                         </View>
                     )}
 
-                    <View className="mt-4 px-4 py-4 rounded-lg bg-[#06B2BE] items-center justify-center mb-12">
+                    <View className="mt-4 px-4 py-4 rounded-lg bg-[#06B2BE] items-center justify-center mb-2">
                         <Text className="text-3xl font-semibold uppercase tracking-wider text-gray-100">
                             Book Now
                         </Text>
