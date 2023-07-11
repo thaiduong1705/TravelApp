@@ -33,6 +33,7 @@ const TabNavigation = () => {
             })}
         >
             <Tab.Screen name="Discover" component={Discover} />
+            <Tab.Screen name="Map" component={Map} />
         </Tab.Navigator>
     );
 };

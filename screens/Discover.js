@@ -68,10 +68,10 @@ const Discover = () => {
                     fetchDetails={true}
                     onPress={(data, detail = null) => {
                         console.log(detail?.geometry?.viewport);
-                        // setBl_lat(detail?.geometry?.viewport?.southwest?.lat);
-                        // setBl_lng(detail?.geometry?.viewport?.southwest?.lng);
-                        // setTr_lat(detail?.geometry?.viewport?.northeast?.lat);
-                        // setTr_lng(detail?.geometry?.viewport?.northeast?.lng);
+                        setBl_lat(detail?.geometry?.viewport?.southwest?.lat);
+                        setBl_lng(detail?.geometry?.viewport?.southwest?.lng);
+                        setTr_lat(detail?.geometry?.viewport?.northeast?.lat);
+                        setTr_lng(detail?.geometry?.viewport?.northeast?.lng);
                     }}
                     query={{
                         key: "AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc",
