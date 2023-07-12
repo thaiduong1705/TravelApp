@@ -8,6 +8,8 @@ import HomeScreen from "./screens/HomeScreen";
 import Discover from "./screens/Discover";
 import ItemScreen from "./screens/ItemScreen";
 import Map from "./screens/Map";
+import ChooseLocation from "./screens/ChooseLocation";
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -50,6 +52,7 @@ export default function App() {
                     <Stack.Screen name="Tab" component={TabNavigation} />
                     <Stack.Screen name="ItemScreen" component={ItemScreen} />
                     <Stack.Screen name="Map" component={Map} />
+                    <Stack.Screen name="ChooseLocation" component={ChooseLocation} />
                 </Stack.Navigator>
             </NavigationContainer>
         </TailwindProvider>
