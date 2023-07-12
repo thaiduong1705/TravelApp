@@ -45,7 +45,7 @@ const Discover = () => {
 
     return (
         <SafeAreaView className="flex-1 bg-white relative mt-[24px]">
-            <View className="flex-row items-center justify-between px-8">
+            <View className="flex-row items-center justify-between px-8 pt-3">
                 <View>
                     <Text className="text-3xl text-[#0b646b] font-bold">
                         Discover
@@ -129,7 +129,7 @@ const Discover = () => {
                             </TouchableOpacity>
                         </View>
 
-                        <View className="px-4 mt-8 flex-row items-center justify-start flex-wrap">
+                        <View className="px-4 mt-4 flex-row items-center justify-start flex-wrap">
                             {mainData?.length > 0 ? (
                                 <>
                                     {/* <ItemCardContainer
