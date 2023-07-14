@@ -21,7 +21,7 @@ const ItemScreen = ({ route }) => {
     }, []);
 
     return (
-        <SafeAreaView className="flex-1 relative bg-white mt-[24px]">
+        <SafeAreaView className="flex-1 relative bg-white">
             <ScrollView className="flex-1 px-4 py-6">
                 <View className="relative bg-white shadow-lg">
                     <Image

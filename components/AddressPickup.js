@@ -20,12 +20,14 @@ const AddressPickup = ({
                 fetchDetails={true}
                 query={{
                     key: "AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc",
-                    language: 'en'
+                    language: 'vi'
                 }}
                 styles={{
                     textInputContainer: styles.containerStyle,
                     textInput: styles.textInputStyle
-                }}>
+                }}
+                disableScroll={true}>
+                    
 
             </GooglePlacesAutocomplete>
         </View>

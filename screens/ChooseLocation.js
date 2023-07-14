@@ -1,62 +1,65 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import AddressPickup from "../components/AddressPickup";
 import CustomBtn from "../components/CustomBtn";
 
-const ChooseLocation = ({}) => {
+import { showError, showSuccess } from "../helper/helperFunction";
+
+const ChooseLocation = (props) => {
     const navigation = useNavigation()
 
     const [state, setState] = useState({
-        pickupCords: {},
         destinationCords: {}
     })
-    const { pickupCords, destinationCords } = state
+    const { destinationCords } = state
 
-    const onDone = () => {        
-        navigation.goBack()
-    }
-
-    const fetchAddressCords = (lat, lng) => {
-        console.log("latitude: ", lat)
-        console.log("longtitude: ", lng)
-        setState({
-            ...state, pickupCords: {
-                latitude: lat,
-                longtitude: lng 
-            }
-        })
+    const onDone = () => {
+        const isValid = checkValid();
+        console.log("Is valid...?", isValid)
+        if (isValid) {
+            props.route.params.getCordinates({
+                destinationCords
+            })
+            showSuccess("You can back now");
+            navigation.goBack();
+        }
     }
 
     const fetchDestinationCords = (lat, lng) => {
-        console.log("latitude: ", lat)
-        console.log("longtitude: ", lng)
         setState({
-            ...state, pickupCords: {
+            ...state, destinationCords: {
                 latitude: lat,
-                longtitude: lng 
+                longitude: lng 
             }
         })
     }
-
+    
+    const checkValid = () => {
+        if (Object.keys(destinationCords).length === 0) {
+            showError("Please enter your destination location")
+            return false;
+        }
+        else return true;
+    }
     
     
     return (
         <View style={styles.container}>
             <ScrollView keyboardShouldPersistTaps="handled" style={{ backgroundColor: 'white', flex: 1, padding: 24 }}>
-                <AddressPickup placeholderText="Enter start location" fetchAddress={fetchAddressCords}/>
                 <View style={{ marginBottom: 16 }}/>
                 <AddressPickup placeholderText="Enter destination location" fetchAddress={fetchDestinationCords}/>
                 <CustomBtn btnText="Done" btnStyle={{ marginTop: 24 }} onPress={onDone}/>
             </ScrollView>
         </View>
-        
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "white",
+        paddingTop: 24
     }
 });
 
