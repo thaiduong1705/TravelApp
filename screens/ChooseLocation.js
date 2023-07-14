@@ -18,15 +18,15 @@ const ChooseLocation = (props) => {
         const isValid = checkValid();
         console.log("Is valid...?", isValid)
         if (isValid) {
-            props.route.params.getCordinates({
+            props.route.params.getCoordinates({ 
                 destinationCords
             })
-            showSuccess("You can back now");
+            showSuccess("You can go back now");
             navigation.goBack();
         }
     }
-
-    const fetchDestinationCords = (lat, lng) => {
+    
+    const fetchDestinationCords = (lat, lng, zipCode, cityText) => {
         setState({
             ...state, destinationCords: {
                 latitude: lat,
@@ -46,10 +46,19 @@ const ChooseLocation = (props) => {
     
     return (
         <View style={styles.container}>
-            <ScrollView keyboardShouldPersistTaps="handled" style={{ backgroundColor: 'white', flex: 1, padding: 24 }}>
+            <ScrollView keyboardShouldPersistTaps="handled" 
+                style={{ backgroundColor: 'white', flex: 1, padding: 24 }}>
+
                 <View style={{ marginBottom: 16 }}/>
-                <AddressPickup placeholderText="Enter destination location" fetchAddress={fetchDestinationCords}/>
-                <CustomBtn btnText="Done" btnStyle={{ marginTop: 24 }} onPress={onDone}/>
+                <AddressPickup 
+                    placeholderText="Enter destination location" 
+                    fetchAddress={fetchDestinationCords}
+                />
+                <CustomBtn 
+                    btnText="Done" 
+                    btnStyle={{ marginTop: 24 }} 
+                    onPress={onDone}
+                />
             </ScrollView>
         </View>
     );

@@ -42,9 +42,11 @@ const Map = () => {
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
     }),
+    time: 0,
+    distance: 0,
   });
 
-  const { curLoc, destinationCords, isLoading, coordinate } = state;
+  const { curLoc, destinationCords, time, distance, isLoading, coordinate } = state;
 
   const animate = (latitude, longitude) => {
     const newCoordinate = {latitude, longitude};
@@ -72,7 +74,7 @@ const Map = () => {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      console.log(location);
+      //console.log(location);
       setState({
         ...state,
         curLoc: {
@@ -86,7 +88,7 @@ const Map = () => {
             longitudeDelta: LONGITUDE_DELTA,
         })
       });
-      console.log(state);
+      //console.log(state);
     })();
   }, []);
 
@@ -99,7 +101,7 @@ const Map = () => {
           return;
         }
         let location = await Location.getCurrentPositionAsync({});
-        console.log(location);
+        //console.log(location);
         animate(location.coords.latitude, location.coords.longitude);
         setState({
           ...state,
@@ -114,18 +116,18 @@ const Map = () => {
             longitudeDelta: LONGITUDE_DELTA,
           })
         });
-        console.log(state);
+       // console.log(state);
       })();
     }, 6000);
     return () => clearInterval(interval);
   });
 
   const onPressLocation = () => {
-    navigation.navigate('ChooseLocation', { getCordinates: fetchValues });
+    navigation.navigate('ChooseLocation', { getCoordinates: fetchValues });
   };
 
   const fetchValues = (data) => {
-    console.log(data);
+    //console.log(data);
     setState({
       ...state,
       destinationCords: {
@@ -148,14 +150,24 @@ const Map = () => {
     });
 }
 
+  const fetchTime = (d,t) =>{
+    setState(state=>({...state, distance: d, time: t}))
+  }
+
   return (
-    <SafeAreaView style={styles.container} className='relative'>
+    <SafeAreaView style={styles.container} className="relative">
       <TouchableOpacity
         onPress={() => onDone()}
-        className='absolute top-7 left-5 w-10 h-10 rounded-md items-center justify-center bg-white z-30'
+        className="absolute top-[50px] left-5 w-10 h-10 rounded-md items-center justify-center bg-white z-30"
       >
-        <FontAwesome5 name='chevron-left' size={24} color='#06B2BE' />
+        <FontAwesome5 name="chevron-left" size={24} color="#06B2BE" />
       </TouchableOpacity>
+      {distance !== 0 && time !== 0 && (
+        <View className='flex justify-center items-center p-4 absolute top-4 left-0 right-0 z-30 mx-[80px] my-5 bg-white rounded-[8px]' style={{ marginVertical: 16 }}>
+          <Text>Time left: {Math.floor(time)} hour</Text>
+          <Text>Distance left: {Math.floor(distance)} km</Text>
+        </View>
+      )}
       <View style={{ flex: 1 }}>
         <MapView
           ref={mapRef}
@@ -166,7 +178,7 @@ const Map = () => {
             longitudeDelta: LONGITUDE_DELTA,
           }}
         >
-          <Marker.Animated coordinate={coordinate} ref={markerRef}/>
+          <Marker.Animated coordinate={coordinate} ref={markerRef} />
 
           {Object.keys(destinationCords).length > 0 && (
             <Marker coordinate={destinationCords} />
@@ -178,8 +190,9 @@ const Map = () => {
               destination={destinationCords}
               strokeWidth={3}
               optimizeWaypoints={true}
-              apikey={'AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc'}
+              apikey={"AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc"}
               onReady={(result) => {
+                fetchTime(result.distance, result.duration),
                 mapRef.current.fitToCoordinates(result.coordinates, {
                   edgePadding: {
                     right: 30,
@@ -190,18 +203,19 @@ const Map = () => {
                   animated: true,
                 });
               }}
-              onError={(errorMessage) => console.log('Error')}
+              onError={(errorMessage) => console.log("Error")}
             />
           )}
         </MapView>
-        <TouchableOpacity style={{
-            position: 'absolute',
+        <TouchableOpacity
+          style={{
+            position: "absolute",
             bottom: 0,
-            right: 0
-        }}
-        onPress={onCenter}
+            right: 0,
+          }}
+          onPress={onCenter}
         >
-            <Image source={require("../assets/greenIndicator.png")}/>
+          <Image source={require("../assets/greenIndicator.png")} />
         </TouchableOpacity>
       </View>
       <View style={styles.bottomcard}>
@@ -210,7 +224,7 @@ const Map = () => {
           <Text>Choose your location</Text>
         </TouchableOpacity>
       </View>
-      <FlashMessage position='top' />
+      <FlashMessage position="top" />
     </SafeAreaView>
   );
 };
