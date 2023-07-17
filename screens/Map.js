@@ -44,9 +44,10 @@ const Map = () => {
     }),
     time: 0,
     distance: 0,
+    heading: 0
   });
 
-  const { curLoc, destinationCords, time, distance, isLoading, coordinate } = state;
+  const { curLoc, destinationCords, time, distance, isLoading, coordinate, heading } = state;
 
   const animate = (latitude, longitude) => {
     const newCoordinate = {latitude, longitude};
@@ -86,7 +87,7 @@ const Map = () => {
             longitude: location.coords.longitude,
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
-        })
+        }),
       });
       //console.log(state);
     })();
@@ -114,7 +115,8 @@ const Map = () => {
             longitude: location.coords.longitude,
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
-          })
+          }),
+          heading: location?.coords?.heading,
         });
        // console.log(state);
       })();
@@ -178,8 +180,21 @@ const Map = () => {
             longitudeDelta: LONGITUDE_DELTA,
           }}
         >
-          <Marker.Animated coordinate={coordinate} ref={markerRef} />
-
+          <Marker.Animated 
+            coordinate={coordinate} 
+            ref={markerRef} 
+          >
+            <Image 
+              source={require("../assets/bike.png")}
+              style={{
+                width: 40,
+                height: 40,
+                transform: [{rotate: `${heading}deg`}]
+              }}
+              resizeMode="contain"
+            />
+          </Marker.Animated>
+            
           {Object.keys(destinationCords).length > 0 && (
             <Marker coordinate={destinationCords} />
           )}

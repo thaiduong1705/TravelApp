@@ -41,6 +41,9 @@ const AddressPickup = ({ placeholderText, fetchAddress }) => {
         placeholder={placeholderText}
         onPress={onPressAddress}
         fetchDetails={true}
+        onFail={error => {
+          console.log(error);
+        }}
         query={{
           key: "AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc",
           language: "vi",
