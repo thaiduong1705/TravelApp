@@ -24,11 +24,14 @@ const ASPECT_RATIO = screen.width / screen.height;
 const LATITUDE_DELTA = 0.04;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-const Map = () => {
+const Map = ({route}) => {
   const navigation = useNavigation();
   
   const mapRef = useRef();
   const markerRef = useRef();
+
+  const data = route?.params?.param;
+
   const [state, setState] = useState({
     curLoc: {
       latitude: 10.79629,
@@ -75,7 +78,7 @@ const Map = () => {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      //console.log(location);
+      console.log(data);
       setState({
         ...state,
         curLoc: {
@@ -88,8 +91,11 @@ const Map = () => {
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
         }),
+        destinationCords: {
+          latitude: parseFloat(data?.latitude),
+          longitude: parseFloat(data?.longitude)
+        },
       });
-      //console.log(state);
     })();
   }, []);
 
@@ -194,7 +200,6 @@ const Map = () => {
               resizeMode="contain"
             />
           </Marker.Animated>
-            
           {Object.keys(destinationCords).length > 0 && (
             <Marker coordinate={destinationCords} />
           )}

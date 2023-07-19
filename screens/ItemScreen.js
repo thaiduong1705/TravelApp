@@ -14,6 +14,8 @@ const ItemScreen = ({ route }) => {
     const navigation = useNavigation();
     const data = route?.params?.param;
 
+    const handleChange = () => {
+    }
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false,
@@ -50,7 +52,7 @@ const ItemScreen = ({ route }) => {
                                     name="map-pin"
                                     size={24}
                                     color="#fff"
-                                    onPress={() => navigation.navigate("Map")}
+                                    onPress={() => navigation.navigate("Map", {param: data})}
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE]">
@@ -199,9 +201,12 @@ const ItemScreen = ({ route }) => {
                     )}
 
                     <View className="mt-4 px-4 py-4 rounded-lg bg-[#06B2BE] items-center justify-center mb-2">
-                        <Text className="text-3xl font-semibold uppercase tracking-wider text-gray-100">
-                            Book Now
-                        </Text>
+                        <TouchableOpacity onPress={handleChange}>
+                            <Text className="text-3xl font-semibold uppercase tracking-wider text-gray-100">
+                                Book Now
+                            </Text>
+                        </TouchableOpacity>
+                        
                     </View>
                 </View>
             </ScrollView>
