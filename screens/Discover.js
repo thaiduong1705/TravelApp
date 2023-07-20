@@ -14,11 +14,13 @@ import MenuContainer from "../components/MenuContainer";
 import { FontAwesome } from "@expo/vector-icons";
 import ItemCardContainer from "../components/ItemCardContainer";
 import { getPlacesData } from "../api";
+import { API_KEY } from "@env";
 
 const Discover = () => {
     const navigation = useNavigation();
     const [type, setType] = useState("restaurants");
     const [isLoading, setIsLoading] = useState(false);
+
     const [mainData, setMainData] = useState([]);
     const [bl_lat, setBl_lat] = useState(null);
     const [bl_lng, setBl_lng] = useState(null);
@@ -74,7 +76,7 @@ const Discover = () => {
                         setTr_lng(detail?.geometry?.viewport?.northeast?.lng);
                     }}
                     query={{
-                        key: "AIzaSyCBvt54W7Mta-p7V-1eopesIe2GLz5j1qc",
+                        key: { API_KEY },
                         language: "vi",
                     }}
                     className="w-full h-full"
