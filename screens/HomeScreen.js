@@ -8,7 +8,6 @@ import {
     TouchableOpacity,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
-import { TEST } from "@env";
 const HomeScreen = () => {
     const navigation = useNavigation();
 
@@ -23,7 +22,7 @@ const HomeScreen = () => {
             <View className="flex-row px-6 mt-8 items-center space-x-2">
                 <View className="w-16 h-16 bg-black rounded-full items-center justify-center">
                     <Text className="text-[#4dabb7] text-3xl font-semibold">
-                        Go {TEST}
+                        Go
                     </Text>
                 </View>
                 <Text className="text-[#2a2b4b] text-3xl font-semibold">

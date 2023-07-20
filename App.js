@@ -20,6 +20,9 @@ const TabNavigation = () => {
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
                     switch (route.name) {
+                        case "Discover":
+                            iconName = "map";
+                            break;
                         default:
                             iconName = "home";
                             break;
@@ -52,7 +55,10 @@ export default function App() {
                     <Stack.Screen name="Tab" component={TabNavigation} />
                     <Stack.Screen name="ItemScreen" component={ItemScreen} />
                     <Stack.Screen name="Map" component={Map} />
-                    <Stack.Screen name="ChooseLocation" component={ChooseLocation} />
+                    <Stack.Screen
+                        name="ChooseLocation"
+                        component={ChooseLocation}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </TailwindProvider>
