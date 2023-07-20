@@ -47,7 +47,7 @@ const AddressPickup = ({ placeholderText, fetchAddress }) => {
                     console.log(error);
                 }}
                 query={{
-                    key: { API_KEY },
+                    key:API_KEY,
                     language: "vi",
                 }}
                 styles={{

@@ -20,7 +20,7 @@ const TabNavigation = () => {
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
                     switch (route.name) {
-                        case "Discover":
+                        case "Bản đồ":
                             iconName = "map";
                             break;
                         default:

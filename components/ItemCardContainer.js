@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 const ItemCardContainer = ({ imageSrc, title, location, data }) => {
     const navigation = useNavigation();
 
-    if (imageSrc || title || location) {
+    if (!imageSrc || !title || !location) {
         return null;
     }
     return (

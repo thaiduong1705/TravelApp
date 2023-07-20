@@ -55,7 +55,7 @@ const ChooseLocation = (props) => {
                     fetchAddress={fetchDestinationCords}
                 />
                 <CustomBtn 
-                    btnText="Done" 
+                    btnText="Hoàn tất" 
                     btnStyle={{ marginTop: 24 }} 
                     onPress={onDone}
                 />

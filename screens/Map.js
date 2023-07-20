@@ -93,24 +93,44 @@ const Map = ({ route }) => {
             }
 
             let location = await Location.getCurrentPositionAsync({});
-            console.log(data);
-            setState({
-                ...state,
-                curLoc: {
-                    latitude: location.coords.latitude,
-                    longitude: location.coords.longitude,
-                },
-                coordinate: new AnimatedRegion({
-                    latitude: location.coords.latitude,
-                    longitude: location.coords.longitude,
-                    latitudeDelta: LATITUDE_DELTA,
-                    longitudeDelta: LONGITUDE_DELTA,
-                }),
-                destinationCords: {
-                    latitude: parseFloat(data?.latitude),
-                    longitude: parseFloat(data?.longitude),
-                },
-            });
+            //console.log(data);
+            if (data == null)
+            {
+                setState({
+                    ...state,
+                    curLoc: {
+                        latitude: location.coords.latitude,
+                        longitude: location.coords.longitude,
+                    },
+                    coordinate: new AnimatedRegion({
+                        latitude: location.coords.latitude,
+                        longitude: location.coords.longitude,
+                        latitudeDelta: LATITUDE_DELTA,
+                        longitudeDelta: LONGITUDE_DELTA,
+                    }),
+                });
+            }
+            else
+            {
+                setState({
+                    ...state,
+                    curLoc: {
+                        latitude: location.coords.latitude,
+                        longitude: location.coords.longitude,
+                    },
+                    coordinate: new AnimatedRegion({
+                        latitude: location.coords.latitude,
+                        longitude: location.coords.longitude,
+                        latitudeDelta: LATITUDE_DELTA,
+                        longitudeDelta: LONGITUDE_DELTA,
+                    }),
+                    destinationCords: {
+                        latitude: parseFloat(data?.latitude),
+                        longitude: parseFloat(data?.longitude),
+                    },
+                });
+            }
+            
         })();
     }, []);
 
@@ -258,12 +278,12 @@ const Map = ({ route }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.bottomcard}>
-                <Text>Where are you going...?</Text>
+                <Text>Ban muốn đi đến đâu?</Text>
                 <TouchableOpacity
                     style={styles.inputStyle}
                     onPress={onPressLocation}
                 >
-                    <Text>Choose your location</Text>
+                    <Text>Hãy chọn vị trí.</Text>
                 </TouchableOpacity>
             </View>
             <FlashMessage position="top" />

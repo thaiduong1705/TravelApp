@@ -76,7 +76,7 @@ const Discover = () => {
                         setTr_lng(detail?.geometry?.viewport?.northeast?.lng);
                     }}
                     query={{
-                        key: { API_KEY },
+                        key:API_KEY,
                         language: "vi",
                     }}
                     className="w-full h-full"
@@ -92,21 +92,24 @@ const Discover = () => {
                 <ScrollView>
                     <View className="flex-row justify-evenly items-center mt-8 px-8">
                         <MenuContainer
-                            key={"hotels"}
+                            key="hotels"
+                            kind="hotels"
                             title="Khách sạn"
                             imageSrc={require("../assets/hotel.png")}
                             type={type}
                             setType={setType}
                         />
                         <MenuContainer
-                            key={"attractions"}
+                            key="attractions"
+                            kind="attractions"
                             title="Điểm du lịch"
                             imageSrc={require("../assets/attraction.png")}
                             type={type}
                             setType={setType}
                         />
                         <MenuContainer
-                            key={"restaurants"}
+                            key="restaurants"
+                            kind="restaurants"
                             title="Nhà hàng"
                             imageSrc={require("../assets/restaurant.png")}
                             type={type}
