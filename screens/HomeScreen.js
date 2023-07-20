@@ -8,7 +8,6 @@ import {
     TouchableOpacity,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
-
 const HomeScreen = () => {
     const navigation = useNavigation();
 
