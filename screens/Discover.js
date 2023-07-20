@@ -48,11 +48,11 @@ const Discover = () => {
             <View className="flex-row items-center justify-between px-8 pt-3">
                 <View>
                     <Text className="text-3xl text-[#0b646b] font-bold">
-                        Discover
+                        Khám phá
                     </Text>
-                    <Text className="text-[#527283] text-2xl ">
+                    {/* <Text className="text-[#527283] text-2xl ">
                         The Beauty today
-                    </Text>
+                    </Text> */}
                 </View>
                 <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center">
                     <Image
@@ -64,7 +64,7 @@ const Discover = () => {
             <View className="flex-row items-center bg-white mx-4 rounded-xl py-1 px-4 mt-4 shadow">
                 <GooglePlacesAutocomplete
                     GooglePlacesDetailsQuery={{ fields: "geometry" }}
-                    placeholder="Search"
+                    placeholder="Tìm kiếm"
                     fetchDetails={true}
                     onPress={(data, detail = null) => {
                         console.log(detail?.geometry?.viewport);
@@ -91,21 +91,21 @@ const Discover = () => {
                     <View className="flex-row justify-evenly items-center mt-8 px-8">
                         <MenuContainer
                             key={"hotels"}
-                            title="Hotels"
+                            title="Khách sạn"
                             imageSrc={require("../assets/hotel.png")}
                             type={type}
                             setType={setType}
                         />
                         <MenuContainer
                             key={"attractions"}
-                            title="Attractions"
+                            title="Điểm du lịch"
                             imageSrc={require("../assets/attraction.png")}
                             type={type}
                             setType={setType}
                         />
                         <MenuContainer
                             key={"restaurants"}
-                            title="Restaurants"
+                            title="Nhà hàng"
                             imageSrc={require("../assets/restaurant.png")}
                             type={type}
                             setType={setType}
@@ -115,11 +115,11 @@ const Discover = () => {
                     <View>
                         <View className="flex-row items-center justify-between px-4 mt-8">
                             <Text className="text-[#2C7379] text-[28px] font-bold">
-                                Top Tips
+                                Nổi bật
                             </Text>
                             <TouchableOpacity className="flex-row items-center justify-center space-x-2">
                                 <Text className="text-[#A0C4C7] text-[20px] font-bold">
-                                    Explore
+                                    Thêm
                                 </Text>
                                 <FontAwesome
                                     name="long-arrow-right"
@@ -164,7 +164,7 @@ const Discover = () => {
                                         source={require("../assets/NotFound.png")}
                                         className="w-[32px] h-[32px] object-cover"
                                     />
-                                    <Text>Oops... No Data Found</Text>
+                                    <Text>Không tìm thấy dữ liệu</Text>
                                 </View>
                             )}
                         </View>

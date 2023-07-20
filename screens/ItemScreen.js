@@ -203,7 +203,7 @@ const ItemScreen = ({ route }) => {
                     <View className="mt-4 px-4 py-4 rounded-lg bg-[#06B2BE] items-center justify-center mb-2">
                         <TouchableOpacity onPress={handleChange}>
                             <Text className="text-3xl font-semibold uppercase tracking-wider text-gray-100">
-                                Book Now
+                                Đặt ngay
                             </Text>
                         </TouchableOpacity>
                         

@@ -21,7 +21,7 @@ const ChooseLocation = (props) => {
             props.route.params.getCoordinates({ 
                 destinationCords
             })
-            showSuccess("You can go back now");
+            showSuccess("Bạn có thể quay lại");
             navigation.goBack();
         }
     }
@@ -37,7 +37,7 @@ const ChooseLocation = (props) => {
     
     const checkValid = () => {
         if (Object.keys(destinationCords).length === 0) {
-            showError("Please enter your destination location")
+            showError("Bạn chưa nhập điểm đến")
             return false;
         }
         else return true;
@@ -51,7 +51,7 @@ const ChooseLocation = (props) => {
 
                 <View style={{ marginBottom: 16 }}/>
                 <AddressPickup 
-                    placeholderText="Enter destination location" 
+                    placeholderText="Nhập điểm đến" 
                     fetchAddress={fetchDestinationCords}
                 />
                 <CustomBtn 

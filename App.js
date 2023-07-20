@@ -34,8 +34,8 @@ const TabNavigation = () => {
                 },
             })}
         >
-            <Tab.Screen name="Discover" component={Discover} />
-            <Tab.Screen name="Map" component={Map} />
+            <Tab.Screen name="Khám phá" component={Discover} />
+            <Tab.Screen name="Bản đồ" component={Map} />
         </Tab.Navigator>
     );
 };

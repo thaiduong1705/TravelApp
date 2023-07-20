@@ -34,13 +34,16 @@ const HomeScreen = () => {
             {/* Second section */}
 
             <View className="px-8 mt-8 space-y-3 z-10">
-                <Text className="text-[#3c6072] text-[42px]">
-                    Enjoy the trip with
+                {/* <Text className="text-[#3c6072] text-[42px]">
+                    Tận hưởng chuyến đi với
                 </Text>
                 <Text className="text-[#00bcc9] text-[38px] font-semibold">
-                    Good Moments
+                    Những khoảnh khắc đáng nhớ
                 </Text>
                 <Text className="text-[#3c6072] text-base">
+                    Chào mừng đến với app tìm kiếm địa điểm.
+                </Text> */}
+                <Text className="text-[#00bcc9] text-[38px] font-semibold">
                     Chào mừng đến với app tìm kiếm địa điểm.
                 </Text>
             </View>
@@ -70,7 +73,7 @@ const HomeScreen = () => {
                         iterationCount={"infinite"}
                     >
                         <Text className="text-white text-4xl font-semibold">
-                            Go
+                            Đi
                         </Text>
                     </Animatable.View>
                 </TouchableOpacity>
