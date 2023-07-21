@@ -47,12 +47,11 @@ const ItemScreen = ({ route }) => {
                         </TouchableOpacity>
 
                         <View className="flex-row justify-between items-center">
-                            <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE] mr-2">
+                            <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE] mr-2" onPress={() => navigation.navigate("Bản đồ", {param: data})}>
                                 <FontAwesome5
                                     name="map-pin"
                                     size={24}
                                     color="#fff"
-                                    onPress={() => navigation.navigate("Bản đồ", {param: data})}
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE]">
