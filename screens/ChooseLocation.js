@@ -42,10 +42,24 @@ const ChooseLocation = (props) => {
         }
         else return true;
     }
-    
+
+    const onBack = () => {
+        navigation.goBack();
+    };
     
     return (
         <View style={styles.container}>
+            {/* <View className="absolute w-[100%] h-[40px] top-0 right-0 left-0">
+                <TouchableOpacity
+                    onPress={() => onBack()}
+                    className="rounded-md items-center justify-center bg-white"
+                >
+                    <FontAwesome5
+                        name="chevron-left"
+                        size={24}
+                        color="#06B2BE"/>
+                </TouchableOpacity>
+            </View> */}
             <ScrollView keyboardShouldPersistTaps="handled" 
                 style={{ backgroundColor: 'white', flex: 1, padding: 24 }}>
 

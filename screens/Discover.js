@@ -93,6 +93,7 @@ const Discover = () => {
                     <View className="flex-row justify-evenly items-center mt-8 px-8">
                         <MenuContainer
                             key="hotels"
+                            id="hotels"
                             kind="hotels"
                             title="Khách sạn"
                             imageSrc={require("../assets/hotel.png")}
@@ -101,6 +102,7 @@ const Discover = () => {
                         />
                         <MenuContainer
                             key="attractions"
+                            id="attractions"
                             kind="attractions"
                             title="Điểm du lịch"
                             imageSrc={require("../assets/attraction.png")}
@@ -109,6 +111,7 @@ const Discover = () => {
                         />
                         <MenuContainer
                             key="restaurants"
+                            id="restaurants"
                             kind="restaurants"
                             title="Nhà hàng"
                             imageSrc={require("../assets/restaurant.png")}

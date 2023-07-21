@@ -36,7 +36,7 @@ const ItemScreen = ({ route }) => {
                     />
                     <View className="absolute flex-row inset-x-0 top-5 justify-between px-6">
                         <TouchableOpacity
-                            onPress={() => navigation.navigate("Discover")}
+                            onPress={() => navigation.navigate("Khám phá")}
                             className="w-10 h-10 rounded-md items-center justify-center bg-white"
                         >
                             <FontAwesome5
@@ -52,7 +52,7 @@ const ItemScreen = ({ route }) => {
                                     name="map-pin"
                                     size={24}
                                     color="#fff"
-                                    onPress={() => navigation.navigate("Map", {param: data})}
+                                    onPress={() => navigation.navigate("Bản đồ", {param: data})}
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity className="w-10 h-10 rounded-md items-center justify-center bg-[#06B2BE]">
@@ -200,14 +200,6 @@ const ItemScreen = ({ route }) => {
                         </View>
                     )}
 
-                    <View className="mt-4 px-4 py-4 rounded-lg bg-[#06B2BE] items-center justify-center mb-2">
-                        <TouchableOpacity onPress={handleChange}>
-                            <Text className="text-3xl font-semibold uppercase tracking-wider text-gray-100">
-                                Đặt ngay
-                            </Text>
-                        </TouchableOpacity>
-                        
-                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
