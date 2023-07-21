@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import AddressPickup from "../components/AddressPickup";
 import CustomBtn from "../components/CustomBtn";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 import { showError, showSuccess } from "../helper/helperFunction";
 
@@ -49,17 +50,20 @@ const ChooseLocation = (props) => {
     
     return (
         <View style={styles.container}>
-            {/* <View className="absolute w-[100%] h-[40px] top-0 right-0 left-0">
+            <View className="w-[100%] h-[40px] top-0 right-0 left-0">
                 <TouchableOpacity
                     onPress={() => onBack()}
-                    className="rounded-md items-center justify-center bg-white"
+                    className="rounded-md pl-7 pt-5 bg-white"
                 >
                     <FontAwesome5
                         name="chevron-left"
-                        size={24}
-                        color="#06B2BE"/>
+                        size={16}
+                        color="#06B2BE"
+                    >
+                        Trờ về
+                    </FontAwesome5>
                 </TouchableOpacity>
-            </View> */}
+            </View>
             <ScrollView keyboardShouldPersistTaps="handled" 
                 style={{ backgroundColor: 'white', flex: 1, padding: 24 }}>
 
