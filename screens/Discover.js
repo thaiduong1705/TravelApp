@@ -27,6 +27,16 @@ const Discover = () => {
     const [tr_lat, setTr_lat] = useState(null);
     const [tr_lng, setTr_lng] = useState(null);
 
+    const handleRefresh = () => {
+        setIsLoading(true);
+        getPlacesData(bl_lat, bl_lng, tr_lat, tr_lng, type).then((data) =>
+            setMainData(data?.data)
+        );
+        const timeOut = setTimeout(() => {
+            setIsLoading(false);
+        }, 4000);
+    };
+
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false,
@@ -76,7 +86,7 @@ const Discover = () => {
                         setTr_lng(detail?.geometry?.viewport?.northeast?.lng);
                     }}
                     query={{
-                        key:API_KEY,
+                        key: API_KEY,
                         language: "vi",
                     }}
                     className="w-full h-full"
@@ -125,9 +135,12 @@ const Discover = () => {
                             <Text className="text-[#2C7379] text-[28px] font-bold">
                                 Nổi bật
                             </Text>
-                            <TouchableOpacity className="flex-row items-center justify-center space-x-2">
+                            <TouchableOpacity
+                                className="flex-row items-center justify-center space-x-2"
+                                onPress={handleRefresh}
+                            >
                                 <Text className="text-[#A0C4C7] text-[20px] font-bold">
-                                    Thêm
+                                    Làm mới
                                 </Text>
                                 <FontAwesome
                                     name="long-arrow-right"

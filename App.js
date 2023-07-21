@@ -47,11 +47,7 @@ export default function App() {
         <TailwindProvider>
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{ headerShown: false }}>
-                    <Stack.Screen
-                        name="Home"
-                        component={HomeScreen}
-                        options={{ tabBarVisible: false }}
-                    />
+                    <Stack.Screen name="Home" component={HomeScreen} />
                     <Stack.Screen name="Tab" component={TabNavigation} />
                     <Stack.Screen name="ItemScreen" component={ItemScreen} />
                     <Stack.Screen name="Map" component={Map} />
